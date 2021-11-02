@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ShiftcrackerApplication<shiftcracker>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.hanbal.shiftcracker.ShiftcrackerApplication",
+      "projectName": "shiftcracker",
+      "args": ""
+    }
+  ]
+}
