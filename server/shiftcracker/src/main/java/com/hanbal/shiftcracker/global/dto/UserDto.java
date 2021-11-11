@@ -1,6 +1,6 @@
-package com.hanbal.shiftcracker.dto;
+package com.hanbal.shiftcracker.global.dto;
 
-import com.hanbal.shiftcracker.domain.User;
+import com.hanbal.shiftcracker.global.domain.User;
 
 import lombok.Getter;
 import lombok.Setter;

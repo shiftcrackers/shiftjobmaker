@@ -1,4 +1,4 @@
-package com.hanbal.shiftcracker.domain;
+package com.hanbal.shiftcracker.global.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

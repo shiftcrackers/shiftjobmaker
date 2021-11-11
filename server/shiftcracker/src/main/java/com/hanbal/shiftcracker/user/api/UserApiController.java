@@ -1,12 +1,11 @@
-package com.hanbal.shiftcracker.api;
+package com.hanbal.shiftcracker.user.api;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import com.hanbal.shiftcracker.domain.User;
-import com.hanbal.shiftcracker.dto.UserDto;
-import com.hanbal.shiftcracker.service.UserService;
+import com.hanbal.shiftcracker.global.domain.User;
+import com.hanbal.shiftcracker.global.dto.UserDto;
+import com.hanbal.shiftcracker.user.service.UserService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
