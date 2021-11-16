@@ -8,7 +8,7 @@
       "console": "internalConsole",
       "mainClass": "com.hanbal.shiftcracker.ShiftcrackerApplication",
       "projectName": "shiftcracker",
-      "args": ""
+      "args": "--spring.profiles.active=prod"
     }
   ]
 }
