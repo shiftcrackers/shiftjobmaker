@@ -20,15 +20,18 @@ const AddUser = ({ history }) => {
         });
     }, []);
 
-    const saveUser = () => {
+    const saveUser = (e) => {
         ApiService.addUser(user)
             .then(res => {
+                e.preventDefault();
                 // this.setState({
                 //     message: 
-                // });
+                // }); 
+                console.log(res);
+                debugger;
                 console.log(user.name + '님이 성공적으로 등록되었습니다.');
                 // this.props.history.push('/users');
-                history.push("/")
+                //history.push("/")
             }).catch(err => {
                 console.log('saveUser() 에러', err);
             });

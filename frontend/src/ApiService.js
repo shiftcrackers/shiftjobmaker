@@ -18,7 +18,7 @@ class ApiService {
             // baseURL설정되어 있기 때문에 그 뒤의 URL만 작성합니다.
             url: USER_API_BASE_URL,
             method: 'post',
-            user: user
+            data: user  
         })
         // return axios.post(USER_API_BASE_URL, user);
     }
