@@ -22,7 +22,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
     function (config) {
         config.headers["Content-Type"] = "application/json;";
-        config.post.headers["Content-Type"] = "application/json; charset=utf-8";
+        // config.post.headers["Content-Type"] = "application/json; charset=utf-8";
         // 요청 바로 직전
         // axios 설정값에 대해 작성합니다.
         return config;
