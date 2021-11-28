@@ -30,20 +30,20 @@ public class HistoryAspect {
   static String className = "";
   static String methodName = "";
 
-  @Around("execution(* com.hanbal.shiftcracker.api.DBRepository*(..))")
-  public void doSomethingBefore(JoinPoint jp) {
-    logger.info("------------------------------");
-    logger.info("---------- START LOG ---------");
-    logger.info("target : " + jp.getTarget());
-    logger.info("type : " + jp.getKind()); // method
-    logger.info("parameter : " + Arrays.toString(jp.getArgs()));
-    logger.info("name : " + jp.getSignature().getName());
-    logger.info("LOG start time : " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
-    logger.info("----------- END LOG ----------");
-    logger.info("------------------------------");
-  }
+  // @Around("execution(* com.hanbal.shiftcracker.*DBRepository*(..))")
+  // public void doSomethingBefore(JoinPoint jp) {
+  //   logger.info("------------------------------");
+  //   logger.info("---------- START LOG ---------");
+  //   logger.info("target : " + jp.getTarget());
+  //   logger.info("type : " + jp.getKind()); // method
+  //   logger.info("parameter : " + Arrays.toString(jp.getArgs()));
+  //   logger.info("name : " + jp.getSignature().getName());
+  //   logger.info("LOG start time : " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+  //   logger.info("----------- END LOG ----------");
+  //   logger.info("------------------------------");
+  // }
 
-  @Around("execution(* com.glv.rocas.plan.service..*.*(..))")
+  @Around("execution(* com.hanbal.shiftcracker.*.service..*.*(..))")
   public Object service(ProceedingJoinPoint joinPoint) throws Throwable {
     long start = System.currentTimeMillis();
 
