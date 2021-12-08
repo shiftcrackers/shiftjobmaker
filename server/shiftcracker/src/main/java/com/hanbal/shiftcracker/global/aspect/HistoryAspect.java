@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
+import com.hanbal.shiftcracker.global.annotation.NoHistory;
 import com.hanbal.shiftcracker.global.domain.History;
 import com.hanbal.shiftcracker.global.service.HistoryService;
 
@@ -32,18 +33,21 @@ public class HistoryAspect {
 
   // @Around("execution(* com.hanbal.shiftcracker.*DBRepository*(..))")
   // public void doSomethingBefore(JoinPoint jp) {
-  //   logger.info("------------------------------");
-  //   logger.info("---------- START LOG ---------");
-  //   logger.info("target : " + jp.getTarget());
-  //   logger.info("type : " + jp.getKind()); // method
-  //   logger.info("parameter : " + Arrays.toString(jp.getArgs()));
-  //   logger.info("name : " + jp.getSignature().getName());
-  //   logger.info("LOG start time : " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
-  //   logger.info("----------- END LOG ----------");
-  //   logger.info("------------------------------");
+  // logger.info("------------------------------");
+  // logger.info("---------- START LOG ---------");
+  // logger.info("target : " + jp.getTarget());
+  // logger.info("type : " + jp.getKind()); // method
+  // logger.info("parameter : " + Arrays.toString(jp.getArgs()));
+  // logger.info("name : " + jp.getSignature().getName());
+  // logger.info("LOG start time : " + new SimpleDateFormat("HH:mm:ss").format(new
+  // Date()));
+  // logger.info("----------- END LOG ----------");
+  // logger.info("------------------------------");
   // }
 
-  @Around("execution(* com.hanbal.shiftcracker.*.service..*.*(..))")
+  @Around("execution(* com.hanbal.shiftcracker.*.service..*.*(..))"
+      + "&& !@annotation(com.hanbal.shiftcracker.global.annotation.NoHistory)"
+      + "&& !@target(com.hanbal.shiftcracker.global.annotation.NoHistory)")
   public Object service(ProceedingJoinPoint joinPoint) throws Throwable {
     long start = System.currentTimeMillis();
 
