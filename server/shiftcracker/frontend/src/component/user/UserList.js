@@ -1,48 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import ApiService from '../../ApiService';
+import { Link /*, Route, withRouter */ } from 'react-router-dom';
+import axios from 'axios';
 
 const UserList = ({ history }) => {
-    const [userList, setUserList] = useState('');
     const [users, setUsers] = useState([]);
 
-    const addUser = () => {
-        history.push('/adduser');
-    }
-
     useEffect(() => {
-        console.log('test');
-        ApiService.fetchUsers()
+        axios.get('/api/v1/users')
+            .then(response => response.data)
             .then(res => {
-                console.log(res.data);
+                if (res.data.length > 0) {
+                    const result = res.data;
+                    setUsers(result);
+                }
+            }).catch(err => {
+                // Do something for an error here
+                console.log("Error Reading data " + err);
             });
-        // fetch('api/v1/users', {
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Accept': 'application/json'
-        //     }
-        // })
-        //     .then(response => response.json())
-        //     .then(res => {
-        //         if (res.data.length > 0) {
-        //             const list = res.data.map((item) =>
-        //                 <tr key={item.id}>
-        //                     <td>{item.id}</td>
-        //                     <td>{item.name}</td>
-        //                 </tr>);
-        //             console.log(list);
-        //             setUserList(list);
-        //         }
-        //     }).catch(err => {
-        //         // Do something for an error here
-        //         console.log("Error Reading data " + err);
-        //     });
     }, []);
 
     return (
         <div>
             <h2>User List</h2>
-            <button onClick={addUser}> Add User </button>
+            <Link to="/adduser">
+                <button > Add User </button>
+            </Link>
             <table>
                 <thead>
                     <tr>
@@ -51,9 +33,13 @@ const UserList = ({ history }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {userList}
+                    {users.map(({ id, name }) => (
+                        <tr key={id + name}>
+                            <td>{id}</td>
+                            <td>{name}</td>
+                        </tr>
+                    ))}
                 </tbody>
-
             </table>
         </div>
     );
