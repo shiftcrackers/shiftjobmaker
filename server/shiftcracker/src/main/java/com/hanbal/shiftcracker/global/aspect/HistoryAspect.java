@@ -1,14 +1,10 @@
 package com.hanbal.shiftcracker.global.aspect;
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
 
-import com.hanbal.shiftcracker.global.annotation.NoHistory;
 import com.hanbal.shiftcracker.global.domain.History;
 import com.hanbal.shiftcracker.global.service.HistoryService;
 
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
