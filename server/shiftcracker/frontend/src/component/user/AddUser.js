@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,8 +12,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const AddUser = ({ history }) => {
-
+const AddUser = () => {
+    const history = useNavigate();
     const theme = createTheme();
     const [user, setUser] = useState({
         name: ''
@@ -36,6 +36,7 @@ const AddUser = ({ history }) => {
         })
             .then(function (response) {
                 // response  
+                history.push('/');
             }).catch(function (error) {
                 // 오류발생시 실행
             }).then(function () {
