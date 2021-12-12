@@ -41,36 +41,35 @@ public class HistoryAspect {
   // logger.info("------------------------------");
   // }
 
-  /*
-   * @Around("execution(* com.hanbal.shiftcracker.*.service..*.*(..))"
-   * + "&& !@annotation(com.hanbal.shiftcracker.global.annotation.NoHistory)"
-   * + "&& !@target(com.hanbal.shiftcracker.global.annotation.NoHistory)")
-   * public Object service(ProceedingJoinPoint joinPoint) throws Throwable {
-   * long start = System.currentTimeMillis();
-   * 
-   * try {
-   * Signature signature = joinPoint.getSignature();
-   * className = joinPoint.getTarget().getClass().getName();
-   * methodName = signature.getName().toString();
-   * 
-   * logger.info("[{}] : {}.{}()", formatter.format(Long.valueOf(start)),
-   * className, methodName);
-   * Object result = joinPoint.proceed();
-   * 
-   * return result;
-   * 
-   * } finally {
-   * 
-   * // History history = new History();
-   * History history = null;
-   * 
-   * historyService.save(history);
-   * long end = System.currentTimeMillis();
-   * logger.info("[" + formatter.format(Long.valueOf(end)) + "] " +
-   * joinPoint.getSignature().toShortString()
-   * + " runtime : " + (end - start) + "ms");
-   * }
-   * }
-   */
+  @Around("execution(* com.hanbal.shiftcracker.*.service..*.*(..))"
+      + "&& !@annotation(com.hanbal.shiftcracker.global.annotation.NoHistory)"
+      + "&& !@target(com.hanbal.shiftcracker.global.annotation.NoHistory)")
+  public Object service(ProceedingJoinPoint joinPoint) throws Throwable {
+    long start = System.currentTimeMillis();
+
+    try {
+      Signature signature = joinPoint.getSignature();
+      className = joinPoint.getTarget().getClass().getName();
+      methodName = signature.getName().toString();
+
+      logger.info("[{}] : {}.{}()", formatter.format(Long.valueOf(start)),
+          className, methodName);
+      Object result = joinPoint.proceed();
+
+      return result;
+
+    } finally {
+      Object[] args = joinPoint.getArgs();
+
+      // History history = new History(userId, tableName, operation, query, creDate,
+      // timeTaken)
+
+      // historyService.save(history);
+      long end = System.currentTimeMillis();
+      logger.info("[" + formatter.format(Long.valueOf(end)) + "] " +
+          joinPoint.getSignature().toShortString()
+          + " runtime : " + (end - start) + "ms");
+    }
+  }
 
 }

@@ -16,7 +16,6 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 public class History {
 
   @Id
@@ -35,4 +34,13 @@ public class History {
 
   private int timeTaken;
 
+  public History(String userId, String tableName, String operation, String query, ZonedDateTime creDate,
+      int timeTaken) {
+    this.userId = userId;
+    this.tableName = tableName;
+    this.operation = operation;
+    this.query = query;
+    this.creDate = creDate;
+    this.timeTaken = timeTaken;
+  }
 }
