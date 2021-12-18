@@ -1,4 +1,5 @@
 import React from "react";
+import TopMenu from "../common/TopMenu";
 import Album from "./Album";
 import Checkout from "./checkout/Checkout";
 import Pricing from "./Pricing";
@@ -12,15 +13,18 @@ import StickyFooter from "./StickyFooter";
 const Sample = () => {
     return (
         <div>
-            {/* <Dashboard /> */}
-            {/* <Blog /> */}
-            <Checkout />
-            <Album />
-            <Pricing />
-            <SignInSide />
-            <SignIn />
-            <SignUp />
-            <StickyFooter />
+            <TopMenu title="샘플" />
+            <div>
+                {/* <Dashboard /> */}
+                {/* <Blog /> */}
+                <Checkout />
+                <Album />
+                <Pricing />
+                <SignInSide />
+                <SignIn />
+                <SignUp />
+                <StickyFooter />
+            </div>
         </div>
     );
 };
