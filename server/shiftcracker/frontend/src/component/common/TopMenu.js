@@ -40,15 +40,15 @@ export const TopMenu = ({ title }) => {
             pr: "24px", // keep right padding when drawer closed
           }}
         >
-          <Typography component="h1" variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
+          <Link variant="h6" color="inherit" href="/" noWrap sx={{ flexGrow: 1 }} style={{ textDecoration: "none" }}>
             {title}
-          </Typography>
-          <nav>
-            <Link variant="button" color="text.primary" href="/sample" sx={{ my: 1, mx: 1.5 }}>
+          </Link>
+          <nav style={{ display: "flex" }}>
+            <Link variant="button" color="text.primary" href="/sample" sx={{ mx: 1.5 }}>
               Sample
             </Link>
           </nav>
-          <Button href="#" color="secondary" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+          <Button href="/login" color="secondary" variant="outlined" sx={{ mx: 1.5 }}>
             Login
           </Button>
         </Toolbar>
