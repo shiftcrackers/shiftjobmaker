@@ -40,7 +40,7 @@ const UserList = () => {
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <TopMenu title="회원 목록" />
-        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+        <Container maxWidth="lg" sx={{ mt: 8, mb: 4 }}>
           <Grid item xs={12} /*md={8} lg={3}*/>
             {/* <Paper
                             sx={{
@@ -52,7 +52,7 @@ const UserList = () => {
                         > */}
             <React.Fragment>
               {/* <Title>Recent Orders</Title> */}
-              <Table size="small">
+              <Table>
                 <TableHead>
                   <TableRow>
                     <TableCell>Id</TableCell>
